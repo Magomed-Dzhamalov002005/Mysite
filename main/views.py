@@ -8,7 +8,7 @@ def index(request):
         'posts':posts,
     }
     
-    query = request.GET.get("search")
+    query = request.GET.get("search-query")
     if query:
         result = Post.objects.filter(name__contains=query) | Post.objects.filter(text__contains=query)
         data["searchResult"] = result

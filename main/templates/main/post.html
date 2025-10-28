@@ -5,7 +5,7 @@
 <header>
     <div class="list-header">
         <div class="brand">
-            <a href="{% url 'home' %}" class="text-decoration-none"><h2 class="navbar-brand fs-2" style="margin:0;padding:0;">Mysite!</h2></a>
+            <a href="{% url 'main:home' %}" class="text-decoration-none"><h2 class="navbar-brand fs-2" style="margin:0;padding:0;">Mysite!</h2></a>
             <span>It's my first site on python</span>
         </div>
         <button id="menuToggler">M</button>
@@ -18,7 +18,7 @@
             <li><a href="#">Item</a></li>
             <li><a href="#">Item</a></li>
         </ul>
-        <form action="{% url 'search' %}" method="GET">
+        <form action="{% url 'main:search' %}" method="GET">
             <input type="search" name="search_query" placeholder="Search">
             <button type="submit">Search</button>
         </form>
