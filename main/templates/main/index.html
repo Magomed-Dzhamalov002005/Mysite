@@ -32,7 +32,7 @@
                 <li><a href="#">Item</a></li>
                 <li><a href="#">Item</a></li>
             </ul>
-            <form action="{% url "home" %}" method="GET">
+            <form action="{% url 'home' %}" method="GET">
                 <input type="search" name="search" placeholder="Search">
                 <button type="submit">Search</button>
             </form>
@@ -52,6 +52,7 @@
             <li><a href="#">link</a></li>
             <li><a href="#">link</a></li>
         </ul>
+        <form action="{% url 'home' %}"></form>
     </aside>
 
     {% endblock %}

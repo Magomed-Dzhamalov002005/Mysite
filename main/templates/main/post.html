@@ -1,5 +1,32 @@
 {% extends "main/index.html" %}
 
+{% block header %}
+<!-- header -->
+<header>
+    <div class="list-header">
+        <div class="brand">
+            <a href="{% url 'home' %}" class="text-decoration-none"><h2 class="navbar-brand fs-2" style="margin:0;padding:0;">Mysite!</h2></a>
+            <span>It's my first site on python</span>
+        </div>
+        <button id="menuToggler">M</button>
+    </div>
+    <section id="menu">
+        <button id="themeLight" class="light">light</button>
+        <button id="themeDark" class="dark">dark</button>
+        <ul>
+            <li><a href="#">Item</a></li>
+            <li><a href="#">Item</a></li>
+            <li><a href="#">Item</a></li>
+        </ul>
+        <form action="{% url 'search' %}" method="GET">
+            <input type="search" name="search_query" placeholder="Search">
+            <button type="submit">Search</button>
+        </form>
+    </section>
+</header>
+            
+{% endblock %}
+
 {% block content %}
 <!-- main-block -->
 <main>

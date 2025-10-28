@@ -8,9 +8,9 @@ def index(request):
         'posts':posts,
     }
     
-    if request.GET:
-        query = request.GET["search"]
-        result = Post.objects.filter(name__contains=query)#, text__contains=query)
+    query = request.GET.get("search")
+    if query:
+        result = Post.objects.filter(name__contains=query) | Post.objects.filter(text__contains=query)
         data["searchResult"] = result
         
     return render(request, 'main/index.html', context=data)
@@ -21,3 +21,13 @@ def post(request, slug):
         'post':post
     }
     return render(request, 'main/post.html', context=data)
+
+def search(request):
+    if request.GET:
+        query = request.GET['search_query']
+        result = Post.objects.filter(name__contains=query) | Post.objects.filter(text__contains=query)
+        
+    data = {
+        'searchResult': result,
+    }
+    return render(request, 'main/search.html', context=data)
