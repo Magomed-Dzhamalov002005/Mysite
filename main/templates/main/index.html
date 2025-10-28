@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block style %}
+    <!-- custom styles -->
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <script src="{% static 'main/js/script.js' %}" defer></script>
+    {% endblock %}
+
+    <title>Document</title>
+</head>
+<body>
+    {% block header %}
+    <!-- header -->
+    <header>
+        <div class="list-header">
+            <div class="brand">
+                <a href="{% url 'home' %}" class="text-decoration-none"><h2 class="navbar-brand fs-2" style="margin:0;padding:0;">Mysite!</h2></a>
+                <span>It's my first site on python</span>
+            </div>
+            <button id="menuToggler">M</button>
+        </div>
+        <section id="menu">
+            <button id="themeLight" class="light">light</button>
+            <button id="themeDark" class="dark">dark</button>
+            <ul>
+                <li><a href="#">Item</a></li>
+                <li><a href="#">Item</a></li>
+                <li><a href="#">Item</a></li>
+            </ul>
+            <form action="#" method="GET">
+                <input type="search" aria-label="Search" placeholder="Search">
+                <button type="submit">Search</button>
+            </form>
+        </section>
+    </header>
+                
+    {% endblock %}
+
+
+    {% block aside %}
+    <!-- sidebar -->
+
+    <aside>
+        <h2>Navbar / name</h2>
+        <ul>
+            <li><a href="#">link</a></li>
+            <li><a href="#">link</a></li>
+            <li><a href="#">link</a></li>
+        </ul>
+    </aside>
+
+    {% endblock %}
+
+
+    {% block content %}
+    <!-- main-block -->
+
+    <main>
+        {% for p in posts %}
+        <article>
+            {% if p.image %}<img src="{{ p.image.url }}">{% else %}<img src="">{% endif %}
+            <div class="card">
+                <a href="{% url 'post' p.slug %}"><h3 class="card-brand">{{ p.name }}</h3></a>
+                <p>{{ p.text }}</p>
+                <i>{{ p.date }}</i>
+                <i>{{ p.views }} views</i>
+            </div>
+        </article>
+        {% endfor %}
+    </main>
+         
+    {% endblock %}
+
+    {% block comments %}
+
+
+    {% endblock %}
+
+
+    {% block footer %}
+    <!-- footer -->
+    
+    <footer>
+        <p>2025. Site with html&css grid and flexbox layouts.</p>
+    </footer>
+
+    {% endblock %}
+
+</body>
+</html>

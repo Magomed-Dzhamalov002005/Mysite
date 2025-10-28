@@ -1,0 +1,24 @@
+{% extends "main/index.html" %}
+
+{% block content %}
+<!-- main-block -->
+<main>
+    <section>
+        {% if post.image %}<img src="{{ post.image.url }}">{% else %}<img src="">{% endif %}
+        <div class="article-content">
+            <h2>{{ post.name }}</h2>
+            <p>{{ post.text }}</p>
+            <i>{{ post.date }}</i>
+            <i>{{ post.views }} views</i>
+        </div>
+    </section>
+</main>
+{% endblock content %}
+
+{% block comments %}
+
+<section class="comments">
+    <h3>Commentaries</h3>
+</section>
+
+{% endblock %}
