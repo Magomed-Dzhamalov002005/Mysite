@@ -1,0 +1,22 @@
+{% extends "main/index.html" %}
+
+{% block content %}
+<!-- main-block -->
+<main>
+    {% if searchResult %}
+        {% for p in searchResult %}
+        <article>
+            {% if p.image %}<img src="{{ p.image.url }}">{% else %}<img src="">{% endif %}
+            <div class="card">
+                <a href="{% url 'post' p.slug %}"><h3 class="card-brand">{{ p.name }}</h3></a>
+                <p>{{ p.text }}</p>
+                <i>{{ p.date }}</i>
+                <i>{{ p.views }} views</i>
+            </div>
+        </article>
+        {% endfor %}
+    {% else %}
+        <p>Oops... There is no any posts!</p>
+    {% endif %}
+</main>
+{% endblock content %}
