@@ -1,0 +1,22 @@
+{% extends "main/index.html" %}
+{% load static %}
+{% block style %}
+    <!-- custom styles -->
+    <link rel="stylesheet" href="{% static 'authentication/css/login.css' %}">
+{% endblock %}
+
+{% block aside %}{% endblock %}
+
+{% block content %}
+<!-- main-block -->
+<main>
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <label name="{{form.username.id_for_label}}">{{form.username.label}}</label>{{form.username}}
+        <label name="{{form.password1.id_for_label}}">{{form.password1.label}}</label>{{form.password1}}
+        <label name="{{form.password2.id_for_label}}">{{form.password2.label}}</label>{{form.password2}}
+        <button type="submit">Sign Up</button>
+    </form>
+</main>
+{% endblock content %}
