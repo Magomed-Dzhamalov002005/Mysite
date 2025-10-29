@@ -1,0 +1,45 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-bg-main: #ffffff;
+    --clr-bg-header: #a0a89c;
+    --clr-bg-footer: #e8f0e8;
+
+    --text-font: sans-serif;
+    --clr-text: #000000;
+    --clr-link: #333333;
+    --clr-link-active: #88ee35;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 90px 1fr auto;
+    grid-template-areas: 
+    "header" 
+    "main"
+    "footer";
+    grid-gap: 10px;
+    min-height: 100vh;
+    background-color: var(--clr-bg-main);
+}
+
+main {
+    grid-area: main;
+    padding: 10px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main form {
+    display: flex;
+    flex-direction: column;
+}

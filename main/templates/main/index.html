@@ -5,11 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    {% block style %}
     <!-- custom styles -->
     <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
     <script src="{% static 'main/js/script.js' %}" defer></script>
-    {% endblock %}
+    {% block style %}{% endblock %}
 
     <title>Document</title>
 </head>
@@ -48,7 +47,7 @@
         <h2>Navbar / name</h2>
         <ul>
             <li><a href="#">Log In</a></li>
-            <li><a href="#">Sign Up</a></li>
+            <li><a href="{% url 'auth:signup' %}">Sign Up</a></li>
         </ul>
     </aside>
 
