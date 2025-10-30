@@ -50,7 +50,7 @@
         <h2>Navbar / name</h2>
         <ul>
             {% if user.is_authenticated %}
-            <li><a href="{% url 'auth:login' %}">My Cabinet</a></li>
+            <li><a href="{% url 'cabinet:studio' user.username %}">My Cabinet</a></li>
             <li><a href="{% url 'auth:logout' %}">Log Out</a></li>
             {% else %} 
             <li><a href="{% url 'auth:login' %}">Log In</a></li>
