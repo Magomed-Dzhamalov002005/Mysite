@@ -12,11 +12,9 @@
 <main>
     <form action="" method="POST">
         {% csrf_token %}
-
-        <label name="{{form.username.id_for_label}}">{{form.username.label}}</label>{{form.username}}
-        <label name="{{form.password1.id_for_label}}">{{form.password1.label}}</label>{{form.password1}}
-        <label name="{{form.password2.id_for_label}}">{{form.password2.label}}</label>{{form.password2}}
-        <button type="submit">Sign Up</button>
+        <!-- {% if messages %}{% for m in messages %}{{ m }}{% endfor %}{% endif %} -->
+        {{ form.as_p }}
+        <div style="display: flex; justify-content: center;"><button type="submit">Sign Up</button></div>
     </form>
 </main>
 {% endblock content %}

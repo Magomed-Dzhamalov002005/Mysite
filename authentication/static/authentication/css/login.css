@@ -40,6 +40,26 @@ main {
 }
 
 main form {
+    width: 300px;
     display: flex;
     flex-direction: column;
+}
+
+main form .errorlist {
+    order: -1;
+    flex-direction: column;
+    align-items: start;
+}
+
+main form .errorlist li {
+    margin: 0;
+}
+
+main form p {
+    display: flex;
+    flex-direction: column;
+}
+
+main form p .helptext {
+    display: none;
 }
