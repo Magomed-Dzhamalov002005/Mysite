@@ -14,7 +14,11 @@
         <button id="themeLight" class="light">light</button>
         <button id="themeDark" class="dark">dark</button>
         <ul>
-            <li><a href="#">Item</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="#">{{request.user.username}}</a></li>
+            {% else %}
+            <li><a href="#">Not logged in</a></li>
+            {% endif %}
         </ul>
         <form action="{% url 'main:search' %}" method="GET">
             <input type="search" name="search_query" placeholder="Search">
