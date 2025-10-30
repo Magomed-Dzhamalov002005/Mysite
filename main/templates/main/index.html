@@ -73,6 +73,7 @@
                 <div class="card">
                     <a href="{% url 'main:post' p.slug %}"><h3 class="card-brand">{{ p.name }}</h3></a>
                     <p>{{ p.text }}</p>
+                    <i>{{ p.author }}</i>
                     <i>{{ p.date }}</i>
                     <i>{{ p.views }} views</i>
                 </div>
@@ -85,6 +86,7 @@
                 <div class="card">
                     <a href="{% url 'main:post' p.slug %}"><h3 class="card-brand">{{ p.name }}</h3></a>
                     <p>{{ p.text }}</p>
+                    <i>{{ p.author }}</i>
                     <i>{{ p.date }}</i>
                     <i>{{ p.views }} views</i>
                 </div>
