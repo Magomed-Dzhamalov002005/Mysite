@@ -1,1 +1,3 @@
 ## It's my site on python django stored on a single base on github! ...
+
+It's the blog sithe with little functionality, need just for learning python and django :)
