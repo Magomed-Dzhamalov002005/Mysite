@@ -27,8 +27,11 @@
             <button id="themeLight" class="light">light</button>
             <button id="themeDark" class="dark">dark</button>
             <ul>
-                <li><a href="#">Log In</a></li>
-                <li><a href="#">Sign Up</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="#">{{request.user.username}}</a></li>
+                {% else %}
+                <li><a href="#">Not logged in</a></li>
+                {% endif %}
             </ul>
             <form action="{% url 'main:home' %}" method="GET">
                 <input type="search" name="search-query" placeholder="Search">
@@ -46,8 +49,13 @@
     <aside>
         <h2>Navbar / name</h2>
         <ul>
-            <li><a href="#">Log In</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'auth:login' %}">My Cabinet</a></li>
+            <li><a href="{% url 'auth:logout' %}">Log Out</a></li>
+            {% else %} 
+            <li><a href="{% url 'auth:login' %}">Log In</a></li>
             <li><a href="{% url 'auth:signup' %}">Sign Up</a></li>
+            {% endif %}
         </ul>
     </aside>
 
