@@ -6,5 +6,9 @@
 <!-- main-block -->
 <main>
     <h1>Hello, {{user.username}}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="submit" name="deleteAccount" value="Delete Account">
+    </form>
 </main>
 {% endblock content %}
