@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib import messages
+# from django.contrib import messages
 from .forms import RegistrationForm
 
 
@@ -13,7 +13,8 @@ def signup(request):
             form.save()
             return redirect("main:home")
     else:
-        messages.error(request, "Data is incorrect!")
+        pass
+    #     messages.error(request, "Data is incorrect!")
     
     data = {
         'form': form,
