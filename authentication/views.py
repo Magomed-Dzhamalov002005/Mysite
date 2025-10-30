@@ -46,5 +46,5 @@ def log_in(request):
 
 def log_out(request):
     logout(request)
-    messages.success("You are successfully logged out.")
+    messages.success(request, "You are successfully logged out.")
     return redirect("auth:login")
