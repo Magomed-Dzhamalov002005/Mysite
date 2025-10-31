@@ -49,6 +49,28 @@
 
 <section class="comments">
     <h3>Commentaries</h3>
+    {% if user.is_authenticated %}
+    <h5>Add commentary</h5>
+    <form method="POST">
+        {% csrf_token %}
+        {{message}}
+        {{form}}
+        <p><button type="submit">Add</button></p>
+    </form>
+    {% endif %}
+    {% for c in comments %}
+    <div>
+        <p><b>{{ c.author }}</b></p>
+        <p class="comment-text">{{ c.text }}</p>
+        <i>{{ c.date }}</i>
+        {% if c.author.username == user.username and c.author.pk == user.pk %}
+        <form method="POST">
+            {% csrf_token %}
+            <p><button type="submit" name="delete-comment" value="{{c.id}}|{{c.date|date:'Y M D'}}">Delete</button></p>
+        </form>
+        {% endif %}
+    </div>
+    {% endfor %}
 </section>
 
 {% endblock %}
