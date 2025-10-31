@@ -251,6 +251,23 @@ main section .article-content p {
     padding: 10px;
 }
 
+.comments form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.comments div {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+
+.comments div .comment-text {
+    height: 60px;
+    overflow: hidden;
+}
+
 footer {
     grid-area: footer;
     padding: 20px;
