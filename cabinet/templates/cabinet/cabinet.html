@@ -3,6 +3,7 @@
 {% block style %}
     <!-- custom styles -->
     <link rel="stylesheet" href="{% static 'cabinet/css/cabinet.css' %}">
+    <script src="{% static 'cabinet/script.js' %}" defer></script>
 {% endblock %}
 
 {% block content %}
@@ -23,9 +24,7 @@
     {% for p in posts %}
         <div class="cab-post">
             <a href="{% url 'main:post' p.slug %}"><h3>{{ p.name }}</h3></a>
-            <span id="postEditionForm">Edit post</span>
-            <form method="POST">{% csrf_token %}</form>
-            <form method="POST">{% csrf_token %}<div><button type="submit" name="deletePost" value="1">Delete Post</button></div></form>
+            <form method="POST">{% csrf_token %}<div><button type="submit" name="deletePost" value="{{p.pk}}">Delete</button></div></form>
         </div>
     {% endfor %}
 

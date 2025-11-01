@@ -43,6 +43,21 @@ def cabinet(request, user):
             User.objects.get(pk=request.user.pk, username=request.user.username).delete()
             messages.success(request, "Account successfully deleted!")
             return redirect("auth:login")
+        else:
+            messages.error(request, "Something went wrong!")
+            return redirect("cabinet:studio", request.user)
+    else:
+        pass
+
+    if request.POST:
+        deletePost = request.POST.get("deletePost")
+        if deletePost:
+            Post.objects.get(pk=deletePost).delete()
+            messages.success(request, "Post successfully deleted!")
+        else:
+            messages.error(request, "Post not found!")
+
+        return redirect("cabinet:studio", request.user)
     else:
         pass
     
