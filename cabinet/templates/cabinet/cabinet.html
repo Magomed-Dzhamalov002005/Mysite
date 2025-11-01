@@ -24,7 +24,15 @@
     {% for p in posts %}
         <div class="cab-post">
             <a href="{% url 'main:post' p.slug %}"><h3>{{ p.name }}</h3></a>
+            <form method="POST">{% csrf_token %}<div><button type="submit" name="editPost" value="{{p.pk}}">Edit</button></div></form>
             <form method="POST">{% csrf_token %}<div><button type="submit" name="deletePost" value="{{p.pk}}">Delete</button></div></form>
+            {% if editPostid == p.pk %}
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ editPostForm.as_p }}
+                    <div><button type="submit" name="postUpdatingForm" value="{{ p.pk }}">Save</button></div>
+                </form>
+            {% endif %}
         </div>
     {% endfor %}
 
