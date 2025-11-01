@@ -1,20 +1,37 @@
 {% extends "main/index.html" %}
-<!-- {% load static %} -->
-{% block style %}{% endblock %}
+{% load static %}
+{% block style %}
+    <!-- custom styles -->
+    <link rel="stylesheet" href="{% static 'cabinet/css/cabinet.css' %}">
+{% endblock %}
 
 {% block content %}
 <!-- main-block -->
 <main>
-    <h1>Hello, {{user.username}}</h1>
-    <form method="POST">
-        {% csrf_token %}
-        <input type="submit" name="deleteAccount" value="Delete Account">
-    </form>
+    {% if messages %}{% for m in messages %}{{ m }}{% endfor %}{% endif %}
+    
+    <h1>Hello, {{user.username}}!</h1>
+
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <h1>Create a post!</h1>
+        <h2>Create a post!</h2>
         {{form.as_p}}
-        <button type="submit">Create</button>
+        <div><button type="submit" name="postCreatingForm" value="1">Create</button></div>
+    </form>
+
+    <h2>Your Posts:</h2>
+    {% for p in posts %}
+        <div class="cab-post">
+            <a href="{% url 'main:post' p.slug %}"><h3>{{ p.name }}</h3></a>
+            <span id="postEditionForm">Edit post</span>
+            <form method="POST">{% csrf_token %}</form>
+            <form method="POST">{% csrf_token %}<div><button type="submit" name="deletePost" value="1">Delete Post</button></div></form>
+        </div>
+    {% endfor %}
+
+    <form method="POST" class="deleteForm">
+        {% csrf_token %}
+        <div><button type="submit" name="deleteAccount" value="1">Delete Account</button></div>
     </form>
 </main>
 {% endblock content %}

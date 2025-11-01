@@ -70,6 +70,11 @@ ul li a:hover {
     color: var(--clr-link-active);
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+}
+
 input {
     background-color: transparent;
     border-radius: 4px;
@@ -78,12 +83,20 @@ input {
     border: 1px solid black;
 }
 
+.dark input {
+    border: 1px solid white;
+}
+
 button {
     margin: 3px;
     padding: 5px;
     border-radius: 4px;
     border: none;
     transition: .2s;
+}
+
+.dark button {
+    color: black;
 }
 
 button:hover {
@@ -146,6 +159,7 @@ header section .dark {
 
 header section form {
     display: flex;
+    flex-direction: row;
     align-items: center;
 }
 
