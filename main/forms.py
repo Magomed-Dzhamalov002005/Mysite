@@ -10,7 +10,7 @@ class PostAddingForm(forms.ModelForm):
 
 
 class CommentForm(forms.ModelForm):
-    text = forms.CharField(max_length=1000, widget=forms.Textarea)
+    text = forms.CharField(max_length=1000, widget=forms.Textarea, label="")
     
     class Meta:
         model = Comment
