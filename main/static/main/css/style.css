@@ -108,6 +108,14 @@ input:focus {
     outline: none;
 }
 
+textarea {
+    color: var(--clr-text);
+}
+
+.dark textarea {
+    color: #000;
+}
+
 header {
     grid-area: header;
     background-color: var(--clr-bg-header);
@@ -203,6 +211,7 @@ main article img {
     flex-shrink: 0;
     width: 200px;
     height: 200px;
+    background-color: #343333;
 }
 
 main article .card {
