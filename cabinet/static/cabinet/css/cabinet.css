@@ -1,0 +1,46 @@
+a {
+    text-decoration: none;
+    color: var(--clr-link);
+    font-family: var(--text-font);
+}
+
+main h2 {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+main .deleteForm button {
+    margin-top: 90px;
+}
+
+main .deleteForm button:hover {
+    background-color: red;
+}
+
+main button {
+    margin: 5px 0;
+}
+
+main form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+main form p {
+    display: flex;
+    flex-direction: column;
+}
+
+main form textarea {
+    padding: 5px;
+    resize: none;
+}
+
+main form textarea:focus {
+    outline: none;
+}
+
+main .cab-post {
+    margin: 10px 0;
+}
