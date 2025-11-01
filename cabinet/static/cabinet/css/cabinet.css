@@ -44,3 +44,11 @@ main form textarea:focus {
 main .cab-post {
     margin: 10px 0;
 }
+
+main .cab-post .edit-form {
+    display: flex;
+}
+
+main .cab-post .edit-form .editing {
+    display: none;
+}
