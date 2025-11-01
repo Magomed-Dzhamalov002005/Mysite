@@ -1,14 +1,27 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
+class Category(models.Model):
+    class CategoryType(models.TextChoices):
+        COUNTRIES = 'GLC', ('Global countries')
+        NEWS = 'NWS', ('Global news')
+        OTHER = 'NO', ("Not in list")
+    
+    name = models.CharField(max_length=50, unique=True)
+    categoryType = models.CharField(max_length=5, choices=CategoryType.choices, default=CategoryType.OTHER)
+
+    def __str__(self) -> str:   
+        return (f"Category[ID:{self.pk}]: {self.name}; {self.categoryType}")
+
 default_author = User.objects.get(username='TemporaryAuthor')
 
-# Create your models here.
 class Post(models.Model):
     slug = models.CharField(max_length=25, unique=True)
     image = models.ImageField(blank=True)
     name = models.CharField(max_length=99)
     text = models.TextField(blank=True)
+    category = models.ForeignKey(Category, on_delete=models.PROTECT)
     author = models.ForeignKey(User, on_delete=models.CASCADE, default=default_author.pk)
     date = models.DateTimeField(auto_now_add=True)
     views = models.IntegerField(default=0)

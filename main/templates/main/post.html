@@ -8,7 +8,7 @@
             <a href="{% url 'main:home' %}" class="text-decoration-none"><h2 class="navbar-brand fs-2" style="margin:0;padding:0;">Mysite!</h2></a>
             <span>It's my first site on python</span>
         </div>
-        <button id="menuToggler">M</button>
+        <button id="menuToggler">-</button>
     </div>
     <section id="menu">
         <button id="themeLight" class="light">light</button>
@@ -37,7 +37,7 @@
         <div class="article-content">
             <h2>{{ post.name }}</h2>
             <p>{{ post.text }}</p>
-            <i>{{ post.author }}</i>
+            <i>{{ post.author }}, {{post.category.name}}</i>
             <i>{{ post.date }}</i>
             <i>{{ post.views }} views</i>
         </div>

@@ -24,7 +24,7 @@ main button {
 main form {
     display: flex;
     flex-direction: column;
-    width: 400px;
+    max-width: 400px;
 }
 
 main form p {
@@ -48,7 +48,3 @@ main .cab-post {
 main .cab-post .edit-form {
     display: flex;
 }
-
-/* main .cab-post .edit-form .editing {
-    display: none;
-} */
